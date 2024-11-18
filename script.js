@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const btn = document.querySelector('button');
 
+
 let startBlocks = 16;
 
 function drawGrid(blocks) {
@@ -34,11 +35,11 @@ btn.addEventListener('click', () => {
 
 
 function etchASketch() {
-    const sketch = document.querySelectorAll('.sketch');
+    const div = document.querySelector('.container');
 
-    for (let i = 0; i < sketch.length; i++) {
-        sketch[i].addEventListener('mouseenter', (e) => {
+    div.addEventListener('mouseover', (e) => {
+        if (e.target.classList.contains('sketch')) {
             e.target.style.backgroundColor = 'black';
-        })
-    };
+        }
+    })
 }
