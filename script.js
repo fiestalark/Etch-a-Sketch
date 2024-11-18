@@ -18,18 +18,25 @@ function drawGrid(blocks) {
 drawGrid(startBlocks);
 etchASketch();
 
-btn.addEventListener('click', () => {
-    while (true) {
-        let squares = Number(prompt('How many squares per side?'));
-        
+function getInput() {
+    let squares;
+    do {
+        squares = prompt('How many squares per side?');
+        if (squares === null) {
+            return;
+        }
+        squares = Number(squares);
         if (Number.isInteger(squares) && squares <= 100 && squares > 1) {
             drawGrid(squares);
             etchASketch();
-            return 1;
+            return;
         }
         alert('Please enter a valid integer between 2 and 100.');
-    }
-});
+    } while (true);
+}
+
+
+btn.addEventListener('click', () => getInput());
 
 
 function etchASketch() {
