@@ -30,12 +30,19 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 960px;
-    max-height: 960px;
+    width: 960px;
+    height: 960px;
+    --number-of-items: 16;
 
 }
 
 .container div {
     background-color: darksalmon;
     border: 1px solid black;
+    width: calc(100% / var(--number-of-items));
+    height: calc(100% / var(--number-of-items));
+}
+
+.etch {
+    background-color: black !important;
 }

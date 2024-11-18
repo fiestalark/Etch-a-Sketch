@@ -6,13 +6,11 @@ let startBlocks = 16;
 
 function drawGrid(blocks) {
     container.innerHTML = '';
-    let height = 960 / blocks;
-    let width = 960 / blocks;
-
+    container.style.setProperty('--number-of-items', blocks);
+    
     for (let i = 0; i < blocks * blocks; i++) {
         let childDiv = document.createElement('div');
         childDiv.classList.add('sketch');
-        childDiv.style.cssText = `height: ${height}px; width: ${width}px;`
         container.appendChild(childDiv);
     }
 }
@@ -39,7 +37,7 @@ function etchASketch() {
 
     div.addEventListener('mouseover', (e) => {
         if (e.target.classList.contains('sketch')) {
-            e.target.style.backgroundColor = 'black';
+            e.target.classList.add('etch');
         }
     })
 }
